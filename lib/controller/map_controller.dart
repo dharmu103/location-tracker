@@ -11,17 +11,20 @@ class MapController extends GetxController {
   RxDouble currentLat = 24.5942497.obs;
   RxDouble currentLng = 73.7648697.obs;
   final ref = FirebaseDatabase.instance.ref('BUS');
+  RxBool buttonsVisibility = false.obs;
 
-  getCurrentPosition() async {
-    var currentLocation = await Location().getLocation();
-    currentLat.value = currentLocation.latitude!;
-    currentLng.value = currentLocation.longitude!;
-    return currentLocation;
-  }
+  // getCurrentPosition() async {
+  //   var currentLocation = await Location().getLocation();
+  //   currentLat.value = currentLocation.latitude!;
+  //   currentLng.value = currentLocation.longitude!;
+  //   print(currentLat.value);
+  //   return currentLocation;
+  // }
 
   void setGoogleMapController(GoogleMapController controller) async {
     googleMapController = controller;
-    await getCurrentPosition();
+
+    // await getCurrentPosition();
     await moveToCurrentLocation(LatLng(currentLat.value, currentLng.value));
     await getAllMarkers();
   }

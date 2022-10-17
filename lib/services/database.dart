@@ -26,7 +26,10 @@ class DatabaseServices {
             ),
             position: LatLng(value['Lat'].toDouble(), value['Lng'].toDouble()),
             icon: markerIcon,
-            infoWindow: InfoWindow(title: key));
+            infoWindow: InfoWindow(
+                title: key,
+                snippet:
+                    "Lat:${value['Lat'].toDouble()}, Lng: ${value['Lng'].toDouble()}"));
         Get.find<MapController>().markers?.add(marker);
       });
     });
