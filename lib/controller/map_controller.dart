@@ -42,13 +42,7 @@ class MapController extends GetxController {
   }
 
   updateCustomIcon() {
-    try {
-      return BitmapDescriptor.fromAssetImage(
-          const ImageConfiguration(
-              size: Size(10, 10), platform: TargetPlatform.android),
-          'assets/icon/bus.png');
-    } catch (e) {
-      return BitmapDescriptor.defaultMarker;
-    }
+    return BitmapDescriptor.fromAssetImage(
+        const ImageConfiguration(), 'assets/icon/bus.png');
   }
 }

@@ -9,11 +9,11 @@ class DatabaseServices {
   final ref = FirebaseDatabase.instance.ref('BUS');
 
   fatchDatabase() async {
-    print('object');
+    //  print('object');
     BitmapDescriptor markerIcon =
         await Get.find<MapController>().updateCustomIcon();
     ref.onValue.listen((DatabaseEvent event) {
-      Get.find<MapController>().markers?.clear();
+      // Get.find<MapController>().markers?.clear();
       final data = event.snapshot.value;
 
       String jsonString = jsonEncode(data);
